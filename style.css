@@ -1,0 +1,57 @@
+
+* {
+    font-family: "Roboto", sans-serif;
+}
+body {
+    display: flex;
+    align-items:center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #333;
+  }
+
+#credit-card{
+
+    width: 576px;
+    height: 326px;
+    overflow: visible;
+}
+
+.card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #2d2d2d;
+    border-radius: 20px;
+}
+.input-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 40px;
+}
+.input{
+    display: flex;
+    flex-direction: row;
+    align-items:center ;
+    gap: 8px
+}
+
+label{
+    font-size: 18px;
+    color: #fff;
+    margin: 0px;
+}
+
+
+input[type="radio"]{
+    width: 24px;
+    height: 24px;
+    margin: 0px;
+}
+
+input[type="radio"]:checked{
+    color: #bb00ff; /* Change color as needed */
+  border-color: #bb00ff;
+}

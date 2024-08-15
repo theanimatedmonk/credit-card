@@ -1,0 +1,65 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pluse website</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@rive-app/canvas@latest/rive.js"></script>
+  
+</head>
+<body>
+<div class="card">
+    <canvas id="credit-card" width="1152"  height="652"></canvas>
+    <div class="input-container">
+
+        <div class="input">
+        <input type="radio" id="swiggy" name="brand" value="1">
+        <label for="swiggy">Swiggy</label>
+        </div>
+        
+        <div class="input">
+        <input type="radio" id="amazon" name="brand" value="2">
+        <label for="amazon">Amazon</label>
+    </div>
+        
+    <div class="input">
+        <input type="radio" id="zomato" name="brand" value="3">
+        <label for="zomato">Zomato</label>
+      </div>
+
+    </div>
+        
+
+        <script>
+            const r = new rive.Rive({
+              src: "credit-card.riv",
+              canvas: document.getElementById("credit-card"),
+              artboard: "Card 1", // Parent artboard
+              stateMachines: ["Card logic"],
+              autoplay: true,
+              onLoad: () => {
+                // Set the "Brand" input in the nested "Logos" artboard
+                function setBrandInput(value) {
+                  r?.setNumberStateAtPath("Brand", value, "Logos");
+                }
+            
+                // Attach event listeners to radio buttons
+                document.querySelectorAll('input[name="brand"]').forEach((radio) => {
+                  radio.addEventListener('change', (event) => {
+                    const value = parseInt(event.target.value, 10);
+                    setBrandInput(value);
+                  });
+                });
+              }
+            });
+            </script>
+            
+        
+      </body>
+        
+        
+      
+      
